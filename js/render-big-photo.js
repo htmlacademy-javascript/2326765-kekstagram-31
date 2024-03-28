@@ -8,9 +8,16 @@ const totalComments = modalBigPicture.querySelector('.social__comment-total-coun
 const renderBigPhoto = (array) => {
 
   usersPhotosContainer.addEventListener('click', (evt) => {
-    evt.preventDefault();
+
     const targetPicture = evt.target.closest('.picture');
+
+    if (!targetPicture) {
+      return;
+    }
+
     const pictureId = targetPicture.dataset.pictureId;
+
+    evt.preventDefault();
 
     const currentPhoto = array.find((el) => el.id === Number(pictureId));
 
